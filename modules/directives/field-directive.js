@@ -46,12 +46,14 @@ angular.module('WebSRF').directive('fieldDirective', function ($http, $compile) 
         	scope.element = element;
         	console.log("field data " + JSON.stringify(scope.field));
             var templateUrl = getTemplateUrl(scope.field);
+			if(templateUrl != undefined){
             $http.get(templateUrl).success(function(data) {
             	console.log("field data " + JSON.stringify(data));
                 element.html(data);
                 scope.element = element.contents();
                 $compile(element.contents())(scope);
             });
+			}
         }
 
         return {
