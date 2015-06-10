@@ -1,12 +1,18 @@
-<div class="form-group top-margin" ng-show= {{field.viewStatus}}>
-    <label for="{{field.fieldName}}" class="control-label col-md-2 col-xs-2">{{field.fieldLabel}}:</label>	
-    <div class="col-xs-4 col-md-4">
-		<select ng-model="field.fieldValue" name= "{{field.fieldName}}"   ng-change="showOtherOptions()" class="form-control"  ng-required="field.required" data-ng-options="option.name for option in field.options">
-			<option value="">Select  {{field.fieldLabel}}</option>
-        </select>    
-        <span class="required-error" ng-show="field.field_required && !field.field_value">* required</span>
-    </div>
+<div class="form-group top-margin" ng-show={{field.viewStatus}}>
+	<label for="{{field.fieldName}}"
+		class="control-label col-md-2 col-xs-2">{{field.fieldLabel}}:</label>
+	<div class="col-xs-4 col-md-4">
+		<select ng-model="field.fieldValue" name="{{field.fieldName}}"
+			ng-change="showOtherOptions()" class="form-control"
+			ng-required="field.required"
+			data-ng-options="option.name for option in field.options">
+			<option value="">Select {{field.fieldLabel}}</option>
+		</select> <!-- <span class="required-error"
+			ng-show="field.field_required && !field.field_value">*
+			required</span> -->
+	</div>
+	<div class="col-xs-2 col-md-2 nopadding" ng-show="field.required && !field.fieldValue">
+				<span class="reqText">*</span></div>
 </div>
 <br>
 <div class="clearfix">
-

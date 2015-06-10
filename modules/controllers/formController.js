@@ -1,10 +1,12 @@
 angular.module('WebSRF').controller('form_ctrl', ['$scope', 'getformdata_svc', '$timeout', function($scope, getformdata_svc, $timeout) {
 
     console.log("reached form");
+    $scope.showJson = false;
     var sections = 5;
-    
+    $scope.transaction = [];
     $scope.form = {};
     $scope.form1 = {};
+    
   //  $scope.form.dynamicArrObj = {};
     var dynamicArrObj = {};
 
@@ -19,6 +21,7 @@ angular.module('WebSRF').controller('form_ctrl', ['$scope', 'getformdata_svc', '
         };
     }
 
+    
     getformdata_svc.form().then(function(form) {
         console.log("service called " + form[0].form_fields.length);
         $scope.form = form[0];
@@ -42,37 +45,20 @@ angular.module('WebSRF').controller('form_ctrl', ['$scope', 'getformdata_svc', '
         
         $scope.form.transaction = $scope.transactionTab;
         $scope.form.collateral = $scope.collateralTab;
-
-        console.log("final form " + JSON.stringify($scope.form));
-        /*for (var j = 0; j < $scope.form.transaction.length; j++) {
-
-
-
-            console.log("orderindex ");
-            if ($scope.form.transaction[j].orderIndex.startsWith("1." + i)) {
-
-                $scope.transactionTab.push(form[0].form_fields[]);
-
-
-            } else {
-                $scope.collateralTab.push(form[0].form_fields[i]);
-            }
-
-        }*/
+        
+      
         
         for(var i = 1 ; i <= sections ; i ++  ){
         	$scope.form.dynamicArrObj[i] = [];
         	$scope.form.dynamicArrObj[i].arr = [];
         	for (var j = 0; j < $scope.form.transaction.length; j++) {
  
-        		console.log("first " + j);
-
-                console.log("orderindex ");
+        		
                 if ($scope.form.transaction[j].orderIndex.startsWith("1." + i)) {
-                	console.log("inside if condition")
+                	
                 	$scope.form.dynamicArrObj[i].arr.push($scope.form.transaction[j]);
 
-                   // $scope.transactionTab.push(form[0].form_fields[]);
+                   
                 	
                 	
 
@@ -83,10 +69,30 @@ angular.module('WebSRF').controller('form_ctrl', ['$scope', 'getformdata_svc', '
         	console.log("second " + JSON.stringify($scope.form.dynamicArrObj[i].arr));
 
         }
-    $timeout(function(){
-    	console.log("dynamic final object " + JSON.stringify($scope.form.dynamicArrObj[1].arr));
-    	},5000);
+   
         
     });
+    
+    
+    $scope.showJsonDiv = function(){
+      $scope.showJson = true;
+ 	  //$scope.transactionObject = $scope.form.transaction;
+      $scope.transaction.length = 0;
+      console.log("start for  " + $scope.form.transaction.length);
+ 	  for(var i = 0 ; i < $scope.form.transaction.length ; i ++){
+ 		  console.log("reached for loop ");
+ 		  $scope.transactionObject = {};
+ 		  $scope.transactionObject.fieldName = $scope.form.transaction[i].fieldName;
+ 		  $scope.transactionObject.fieldValue = $scope.form.transaction[i].fieldValue;
+ 		  $scope.transaction.push($scope.transactionObject);
+ 		  
+ 	  }
+ 	   console.log("form submitting " + JSON.stringify($scope.transaction));
+    }
+ 	
+    
+    $scope.hideJson = function(){
+    	$scope.showJson = false;
+    }
 
 }]);

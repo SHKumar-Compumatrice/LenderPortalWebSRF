@@ -56,7 +56,7 @@ angular.module('WebSRF').directive('showErrors',['$timeout',function($timeout){
 		restrict : 'A',
 		require : '^form',
 		link : function(scope,el,attrs,formCtrl){
-			
+			console.log("show error directive called");
 			var inputEl = el[0].querySelector("[name]");
 			var inputNgEl = angular.element(inputEl);
 			

@@ -18,7 +18,7 @@
             {
                 "fieldName": "BorrowerName",
                 "fieldLabel": "Borrowers Name",
-                "orderIndex": "1.2.2",
+                "orderIndex": "1.1.2",
                 "required": 1,
                 "viewStatus": 1,
                 "options": null,
@@ -68,6 +68,256 @@
                 "tooltip": null,                
                 "fieldType" : "textfield"
                 
+            },{
+                "fieldName": "BorrowerType",
+                "fieldLabel": "Borrower Type",
+                "orderIndex": "1.1.5",
+                "required": 0,
+                "viewStatus": 1,
+                "options": [
+                    {
+                        "name": "Individual",
+                        "value": "Individual",
+                        "orderIndex": 1,
+                        "parent": ""
+                    },
+                    {
+                        "name": "Legal Entity",
+                        "value": "Legal Entity",
+                        "orderIndex": 2,
+                        "parent": ""
+                    }
+                ],
+                "tooltip": null,
+                "fieldType" : "dropdown"
+            },{
+                "fieldName": "LoanNumber",
+                "fieldLabel": "Obligation # / Loan Number",
+                "orderIndex": "1.1.6",
+                "required": 0,
+                "viewStatus": 1,
+                "options": null,
+                "tooltip": null,
+                "fieldType" : "textfield"
+            },{
+                "fieldName": "DesiredReviewDate",
+                "fieldLabel": "Desired Review Delivery Date",
+                "orderIndex": "1.1.7",
+                "required": 0,
+                "viewStatus": 1,
+                "options": null,
+                "tooltip": null,
+                "fieldType" : "textfield"
+            },
+            {
+                "fieldName": "ClosingDate",
+                "fieldLabel": "Anticipated Closing Date",
+                "orderIndex": "1.1.8",
+                "required": 0,
+                "viewStatus": 1,
+                "options": null,
+                "tooltip": null,
+                "fieldType" : "textfield"
+            }
+            ,{
+                "fieldName": "Purpose",
+                "fieldLabel": "Purpose of the Request",
+                "orderIndex": "1.1.9",
+                "required": 0,
+                "viewStatus": 1,                
+                "options": [
+                    {
+                        "name": "Loan Underwriting",
+                        "value": "Loan Underwriting",
+                        "orderIndex": 1,
+                        "parent": ""
+                    },
+                    {
+                        "name": "Loan Monitoring1",
+                        "value": "Loan Monitoring1",
+                        "orderIndex": 2,
+                        "parent": ""
+                    },
+                    {
+                        "name": "Foreclosure",
+                        "value": "Foreclosure",
+                        "orderIndex": 3,
+                        "parent": ""
+                    },
+                    {
+                        "name": "OREO",
+                        "value": "OREO",
+                        "orderIndex": 4,
+                        "parent": ""
+                    },
+                    {
+                        "name": "Other",
+                        "value": "Other",
+                        "orderIndex": 5,
+                        "parent": ""
+                    }
+                ],
+                "tooltip": null,
+                "fieldType" : "dropdown"
+            },
+            {
+                "fieldName": "TransactionType",
+                "fieldLabel": "Credit Transaction Type",
+                "orderIndex": "1.1.10",
+                "required": 0,
+                "viewStatus": 1,
+                "options": [
+                    {
+                        "name": "New Loan to the Bank",
+                        "value": "NewLoan",
+                        "orderIndex": 1,
+                        "parent": ""
+                    },
+                    {
+                        "name": "Renewal/Modification of existing 5/3 loan without new money over existing Loan Balance",
+                        "value": "ModificationWithoutNewMoney",
+                        "orderIndex": 2,
+                        "parent": ""
+                    },
+                    {
+                        "name": "Renewal/Modification of existing 5/3 loan with new money over existing Loan Balance",
+                        "value": "ModificationWithNewMoney",
+                        "orderIndex": 3,
+                        "parent": ""
+                    },
+                    {
+                        "name": "Other",
+                        "value": "Other",
+                        "orderIndex": 4,
+                        "parent": ""
+                    }
+                ],
+                "tooltip": null,
+                "fieldType" : "dropdown"
+            },
+            {
+                "fieldName": "loanPurpose",
+                "fieldLabel": "Loan Purpose",
+                "orderIndex": "1.1.11",
+                "required": 0,
+                "viewStatus": 1,
+                "options": [
+                    {
+                        "name": "Business",
+                        "value": "Business",
+                        "orderIndex": 10,
+                        "parent": ""
+                    },
+                    {
+                        "name": "Consumer",
+                        "value": "Consumer",
+                        "orderIndex": 20,
+                        "parent": ""
+                    }
+                ],
+                "tooltip": [
+                    {
+                        "header": "Business Loan",
+                        "body": "Business Loan - A loan made for business purposes whose primary source of repayment is not dependent upon the sale of, or rental income derived from, the real estate taken as collateral or any other real estate (e.g. commercial mortgage, term loan, seasonal line of credit, etc.); a loan or extension of credit to any corporation, general or limited partnership, business trust, joint venture, pool, syndicate, sole proprietorship (including an individual engaging in farming), or other business entity; Loans to individuals or consumer loans do not qualify as business loans."
+                    }
+                ],
+                "fieldType" : "dropdown"
+            },
+            {
+                "fieldName": "IsSbaLoan",
+                "fieldLabel": "SBA Involvement?",
+                "orderIndex": "1.1.12",
+                "required": 0,
+                "viewStatus": 1,
+                "options": [
+                    {
+                        "name": "Yes",
+                        "value": 1,
+                        "orderIndex": 1,
+                        "parent": ""
+                    },
+                    {
+                        "name": "No",
+                        "value": 0,
+                        "orderIndex": 2,
+                        "parent": ""
+                    }
+                ],
+                "tooltip": null,
+                "fieldType" : "radio"
+            },
+            {
+                "fieldName": "IsParticipationLoan",
+                "fieldLabel": "Participation/Syndication/SNC loan?",
+                "orderIndex": "1.1.13",
+                "required": 0,
+                "viewStatus": 1,
+                "options": [
+                    {
+                        "name": "Yes",
+                        "value": 1,
+                        "orderIndex": 1,
+                        "parent": ""
+                    },
+                    {
+                        "name": "No",
+                        "value": 0,
+                        "orderIndex": 2,
+                        "parent": ""
+                    }
+                ],
+                "tooltip": null,
+                "fieldType" : "radio"
+            },
+            {
+                "fieldName": "RifNumber",
+                "fieldLabel": "RIF # or Prospect",
+                "orderIndex": "1.1.14",
+                "required": 0,
+                "viewStatus": 1,
+                "options": null,
+                "tooltip": null,
+                "fieldType" : "textfield"
+            },
+            {
+                "fieldName": "Requester",
+                "fieldLabel": "Requester",
+                "orderIndex": "1.3.1",
+                "required": 0,
+                "viewStatus": 1,
+                "options": null,
+                "tooltip": null,
+                "fieldType" : "textfield"
+            },
+            {
+                "fieldName": "NotifyEmails",
+                "fieldLabel": "Email Address(es)",
+                "orderIndex": "1.3.2",
+                "required": 0,
+                "viewStatus": 1,
+                "options": null,
+                "tooltip": null,
+                "fieldType" : "textfield"
+            },
+            {
+                "fieldName": "CostCenterNumber",
+                "fieldLabel": "Billing Cost Center #",
+                "orderIndex": "1.4.1",
+                "required": 0,
+                "viewStatus": 1,
+                "options": null,
+                "tooltip": null,
+                "fieldType" : "textfield"
+            },
+            {
+                "fieldName": "LedgerNumber",
+                "fieldLabel": "General Ledger #",
+                "orderIndex": "1.4.2",
+                "required": 0,
+                "viewStatus": 1,
+                "options": null,
+                "tooltip": null,
+                "fieldType" : "textfield"
             },
             {
                 "fieldname": "propertySubType",
