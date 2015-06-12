@@ -1,0 +1,254 @@
+<style>
+    .top-margin {
+        margin-top: 20px;
+    }
+</style>
+<h4>{{ form.form_name }}</h4>
+<div class="alert alert-danger alert-dismissible" role="alert" ng-show="submissionFailed">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Warning!</strong> Invalid form entry . Please re-check form submission.
+
+    </div>
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a showtab="" href="#transaction"
+           ng-click="transaction = true ; collateral = false">Transaction</a>
+    </li>
+    <li>
+        <a showtab="" href="#collateral"
+           ng-click="transaction = false ; collateral = true">Collateral</a>
+    </li>
+</ul>
+<div id="transaction" ng-show="transaction" id="transaction">
+    
+    <form name="transactionform" id="transactionform">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTransactionInfo">TRANSACTION INFORMATION</a>
+                    </h4>
+                </div>
+                <div id="collapseTransactionInfo" class="panel-collapse collapse in">
+                    <div class="panel-body">
+
+                        <div ng-repeat="field in form.dynamicArrObj[1].arr">
+                            <div field-directive field="field"></div>
+                        </div>
+                        <br>
+                        <br>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseDocumentation">DOCUMENTATION</a>
+                    </h4>
+                </div>
+                <div id="collapseDocumentation" class="panel-collapse collapse">
+                    <h4>File upload control to be placed here</h4>
+
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseRelation">RELATIONSHIP MANAGER INFO</a>
+                    </h4>
+                </div>
+                <div id="collapseRelation" class="panel-collapse collapse">
+
+                    <div class="panel-body">
+                        <div ng-repeat="field in form.dynamicArrObj[3].arr">
+                            <div field-directive field="field"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseInvoicing">INVOICING</a>
+                    </h4>
+                </div>
+                <div id="collapseInvoicing" class="panel-collapse collapse">
+
+                    <div class="panel-body">
+                        <div ng-repeat="field in form.dynamicArrObj[4].arr">
+                            <div field-directive field="field"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div align="center" class="form-group col-xs-12 col-md-12 top-margin">
+            <button class="btn btn-md btn-primary" type="button"
+                    ng-click="submitTransaction()">
+                <i class="icon-edit icon-white"></i> Submit Form
+
+            </button>
+            <button class="btn btn-md btn-default" type="button"
+                    ng-click="cancelTransaction()">
+                <i class="icon-remove icon-white"></i> Cancel
+
+            </button>
+        </div>
+    </form>
+</div>
+
+
+
+<div id="collateral" ng-show="collateral">
+    <!-- <div class="alert alert-danger alert-dismissible" role="alert" ng-show="collateralSubmissionFailed">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Warning!</strong> Invalid form entry . Please re-check form submission.
+
+    </div> -->
+    <form name="collateralform" id="collateralform">
+        <div class="panel-group" id="accordion1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" data-target="#collapseProperties">PROPERTIES</a>
+                    </h4>
+                </div>
+                <div id="collapseProperties" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="form-group top-margin">
+                            <label for="properties"
+                                   class="control-label col-md-2 col-xs-2">Choose the property to manage:</label>
+                            <div class="col-xs-4 col-md-4">
+                                <select ng-model="property" name="properties"
+                                        ng-change="showProperties()" class="form-control"  required                                     
+                                        data-ng-options="property.name for property in properties">
+                                    <option value="">Select  Property</option>
+                                </select>
+                               
+                            </div>
+                            <div class="col-xs-2 col-md-2 nopadding">
+                                <span class="reqText">*</span> &nbsp;&nbsp;
+                                
+                                <span><a ng-click = "deleteproperty()">Delete</a></span> &nbsp;
+                                <span><a ng-click = "addproperty()">Add New</a></span>
+                                
+                            </div>
+                           
+                        </div>
+                        <br>
+                        <div class="clearfix"></div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" data-target="#collapsePropDesc">PROPERTY DESCRIPTION</a>
+                    </h4>
+                </div>
+                <div id="collapsePropDesc" class="panel-collapse collapse">
+                    <div class="panel-body">
+                    
+                    <div ng-repeat="field in form.collateralObj[1].arr">
+                            <div field-directive field="field"></div>
+                        </div>
+                        <br>
+                        <br>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" data-target="#collapseSelectServices">SELECT SERVICES</a>
+                    </h4>
+                </div>
+                <div id="collapseSelectServices" class="panel-collapse collapse">
+
+                    <div class="panel-body">
+                    
+                    <span style="color:red;">Select the services that are needed to fulfill the due diligence requirements for this loan situation.<br>
+THIS WILL NOT PROCURE THE SERVICES. You must go into the loan file after you click "Create Service Request" and order, direct task, or put out to bid the services requested.</span>
+                    <div class="col-xs-6 col-md-6">
+                    <h4>Appraisal</h4>
+                   
+                    <div ng-repeat="item in form.Appraisal">
+                    <input type="checkbox" ng-model="item.value" ng-change = "setSelectServices($index,item)"></input>
+        			 <label>{{item.name}}</label>
+    				</div>
+    				<br>
+                   
+                    </div>
+                    
+                    
+                   
+                    
+                     <div class="col-xs-6 col-md-6">
+                    <h4>Environmental</h4>
+                   
+                    <div ng-repeat="item in form.Environmental">
+       				 <input type="checkbox" ng-model="item.value" ng-change = "setSelectServices($index,item)"></input>
+        			<label>{{item.name}}</label>
+    				</div>
+    				<br>
+                   
+                    </div>
+                    
+                    <div class="col-xs-6 col-md-6">
+                    <h4>Flood</h4>
+                   
+                    <div ng-repeat="item in form.Flood">
+       				 <input type="checkbox" ng-model="item.value" ng-change = "setSelectServices($index,item)"></input>
+        			<label>{{item.name}}</label>
+    				</div>
+    				<br>
+                   <hr>
+                    </div>
+                    
+                    <div class="col-xs-6 col-md-6">
+                    <h4>Additional Services</h4>
+                   
+                    <div ng-repeat="item in form.AdditionalServices">
+       				 <input type="checkbox" ng-model="item.value" ng-change = "setSelectServices($index,item)"></input>
+        			<label>{{item.name}}</label>
+    				</div>
+    				<br>
+                   <hr>
+                    </div>
+                     
+                     
+                     <div ng-repeat="field in form.collateralObj[2].arr">
+                            <div field-directive field="field"></div>
+                        </div>
+                        <br>
+                        <br>
+
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+
+        
+        <div align="center" class="form-group col-xs-12 col-md-12 top-margin">
+            <button class="btn btn-md btn-primary" type="button"
+                    ng-click="submitCollateral()">
+                <i class="icon-edit icon-white"></i> Submit Form
+
+            </button>
+            <button class="btn btn-md btn-default" type="button"
+                    ng-click="cancelCollateral()">
+                <i class="icon-remove icon-white"></i> Cancel
+
+            </button>
+        </div>
+    </form>
+</div>
+
