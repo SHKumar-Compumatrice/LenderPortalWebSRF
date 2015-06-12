@@ -54,23 +54,27 @@
 
 						</div>
 					</div>
-					<div class="class=" col-xs-offset-3 col-md-offset-3 col-xs-5
-						col-md-5" show-errors>
+					<div class="row">
+					<div class="col-xs-offset-3 col-md-offset-3 col-xs-5 col-md-5" show-errors>
 
 
-						<div>
-							<i class="glyphicon glyphicon-search"></i> <input type="text"
+						
+							<!-- <i class="glyphicon glyphicon-search"></i> --> <input type="text"
 								required name="cabinets" class="form-control"
 								placeholder="Start Typing" ng-model="cabinet.cabinetName"
 								typeahead="singleCabinet.name for singleCabinet in allCabinets | filter:$viewValue"
 								typeahead-on-select="cabinet.hideInvalidMsg()"></input>
-						</div>
-						<div class="col-xs-offset-3 col-md-offset-3 col-xs-5 col-md-5">
-							<button type="submit" class="btn btn-md btn-primary"
+								<button class="top-margin" type="submit" class="btn btn-md btn-primary"
 								ng-click="cabinet.showCreateLoanForm()">Create Loan</button>
 						</div>
+						<!-- <div class="col-xs-offset-3 col-md-offset-3 col-xs-5 col-md-5">
+							<button type="submit" class="btn btn-md btn-primary"
+								ng-click="cabinet.showCreateLoanForm()">Create Loan</button>
+						</div> -->
 						<span ng-show="cabinet.invalid">Invalid cabinet</span>
 
+					
+					
 					</div>
 					<br>
 
