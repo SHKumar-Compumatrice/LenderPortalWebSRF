@@ -1,0 +1,22 @@
+<div class="col-xs-12 col-lg-12 col-md-12 form-group " ng-show={{field.viewStatus}}>
+	<label for="{{field.fieldLabel}}"
+		class="control-label col-md-2 col-xs-2">{{field.fieldLabel}}:</label>
+	<div class="col-xs-4 col-md-4">
+		
+			<label style="padding: 0px 10px 0px 0px" ng-repeat="option in field.options"> <input type="radio" value="{{option.value}}"
+				ng-model="field.fieldValue" ng-required="field.required" ng-change="radiobtnClicked(value)"  />
+				<span
+				ng-bind="option.name"></span>
+			</label>
+		
+		
+	</div>
+	<div class="col-xs-2 col-md-2 nopadding" ng-show="field.required && !field.fieldValue">
+				<span class="reqText">*</span></div>
+</div>
+<br>
+<div class="clearfix"></div>
+
+
+
+	
